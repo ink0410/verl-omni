@@ -27,11 +27,6 @@ on:
       - .github/workflows/npu_smoke.yml
       - .github/vllm_omni_pin.txt
 
-# Cancel jobs on the same ref if a new one is triggered
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
-
 # Declare permissions just read content and PR file metadata.
 permissions:
   contents: read
